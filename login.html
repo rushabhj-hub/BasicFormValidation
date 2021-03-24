@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Login page
+    </title>
+    <link rel="stylesheet" type="text/css" href="file1.css">
+
+
+
+    <script>
+        function verifydata(){
+            var flag=0;
+            var msg=""
+            emailID = document.getElementById("usr").value;
+           
+            var emailtest = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (emailtest.test(emailID)==false) {
+            
+            flag=flag+1;
+            
+            }
+
+            pass = document.getElementById("pass").value;
+            passtest = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/;
+            if (passtest.test(pass)==false) {
+            
+            flag=flag+1;
+            
+            }
+
+            if(flag>0){
+                window.alert("The Username or the Password is Invalid.");
+                return false;
+            }
+
+            if(flag==0){
+                return true;
+            }
+        }
+
+    </script>
+    </head>
+   
+    <body style="background-color: #00bfff">
+            <div class='container'>
+                <div id="first">
+                    <img src="img.png" style="color: white;height: 100px;width:50;">
+                    <h2>Welcome</h2>
+                    <p> Way to Greatness!</p>
+                    <br>
+                    <br>
+                    <form action="formv.html">
+                    <input type="submit" name="register" value="Back to Registertration" style="font-family: serif;font-size: 25px;background-color:white;border: 1px solid white;border-radius: 8px;color:black; height:45px;width: 250px;">
+                </form>
+        
+                </div>
+                <div id="second">
+                    <center><h2 style="text-decoration: none;">Login</h2></center>
+
+                    <center><p >(Please use your email id as Username)</p></center>
+                    <br>
+                    <form action="welcome.html" onsubmit="return verifydata()" >
+
+                        <label for="usrname"  style="height: 30px;width: 400px;position:relative;left:130px" >Enter your Username : </label>
+                        <input name="usrname" id="usr" placeholder="user_name" type="text" style="height: 30px;width: 400px;position:relative;left:150px;">
+                    
+                        <br>
+                        <br>
+                        <label for="pass"  style="height: 30px;width: 400px;position:relative;left:130px" >Enter your Password : </label>
+                        <input name="password" id="pass" placeholder="password" type="password" style="height: 30px;width: 400px;position:relative;left:155px;">
+                        <br>
+
+                        <span style="color: blueviolet ; font-family: serif;position: relative;top:50px;left:140px; font-size: 20px;">Forgot Password ?</span>
+                        <br>
+                        
+                       <a href="reset.html"><input type="button" name="reset" value="Reset Password" style="font-family: serif;position: relative;top:60px;left:120px; font-size: 25px;background-color:#00bfff;border: 1px solid white;border-radius: 8px;color:white; height:45px;width: 190px;"></a>
+                    
+                        <input type="submit" name="login" value="Login"  style="font-family: serif;position: relative;top:60px;left:410px; font-size: 25px;background-color:#00bfff;border: 1px solid white;border-radius: 8px;color:white; height:45px;width: 130px;">
+
+                    </form>
+                
+                </div>
+                </div>
+                
+            
+        
+           
+                
+          
+        
+        
+        
+    </body>
+    </html>

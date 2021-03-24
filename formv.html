@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Form Validation</title>
+
+    <link rel="stylesheet" type="text/css" href="file1.css">
+
+    <script>
+
+        function fun(){
+            
+            var msg="";
+            var flag = 0;
+                
+            name = document.getElementById("fname").value;
+            
+            var nametest =  /^[A-Za-z]{2,}$/;
+            if(nametest.test(name)==false){
+                flag=flag+1;
+                msg = msg+"\nThe First Name must be at least two characters long.";
+               
+
+            }
+
+            lname = document.getElementById("lname").value;
+            if(nametest.test(lname)==false){
+                flag=flag+1;
+                msg = msg+"\nThe Last Name must be at least two characters long.";
+               
+
+            }
+
+            var ph;
+            var phoneno = /^\d{10}$/;
+            ph = document.getElementById("phone").value;
+           
+            if((phoneno.test(ph))==false)
+            {
+                flag=flag+1;
+                 msg = msg + "\nThe Phone number must contain 10 digits only.";
+                }
+                 
+                emailID = document.getElementById("email").value;
+           // var emailtest = /^[A-A-Za-z0-9]+@+[a-z]$/;
+            var emailtest = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (emailtest.test(emailID)==false) {
+            
+            flag=flag+1;
+            msg = msg + "\nThe Email ID is invalid."
+            }
+
+
+            pass = document.getElementById("pass").value;
+            passtest = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/;
+            if (passtest.test(pass)==false) {
+            
+            flag=flag+1;
+            msg = msg + "\nThe Password must contain at least one Upper case character, one lower case character, one digit and one special character, with minimum length of eight and maximum length of 12. "
+            }
+
+
+           
+
+            if(flag>0){
+                window.alert(msg);
+                return false;
+            }
+
+            if(flag==0){
+                window.alert("Your details have been registered Successfully.\nYou may login to your account now.");
+                return true;
+            }
+
+
+
+        }
+
+        var check = function() {
+            if (document.getElementById('pass').value ==
+            document.getElementById('cpass').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Passwords match';
+            } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Passwords do not Match';
+                 }
+                }
+
+        
+        
+
+        
+    </script>
+</head>
+
+
+<body style="background-color: #00bfff">
+    <div class='container'>
+        <div id="first">
+            <img src="img.png" style="color: white;height: 100px;width:50;">
+            <h2>Welcome</h2>
+            <p> You are 30 seconds away<br> form earning your own<br> money!</p>
+            <br>
+            <br>
+            <form action="login.html">
+            <input type="submit" name="Register" value="Login" style="font-family: serif;font-size: 25px;background-color:white;border: 1px solid white;border-radius: 8px;color:black; height:45px;width: 130px;">
+        </form>
+
+        </div>
+        <div id="second">
+            <center><h2 style="text-decoration: none;">Apply as an Employee</h2></center>
+        <form action="#" name="form1" onsubmit="return fun()" >
+            <input  type="text" style="height: 30px;width: 400px;position:relative;left:50px;" id="fname" placeholder="First Name" required>
+            
+            <input   type="text" style="height: 30px;width: 400px;position:relative;left:100px;" id="email" placeholder="Your email" required>
+            <br>
+            <input  type="text" style="height: 30px;width: 400px;position:relative;top:30px;left:50px" id="lname" placeholder="Last Name" required>
+
+            <input  type="text" id="phone" style="height: 30px;width: 400px;position:relative;left:100px;top:30px" placeholder="Your Phone" required>
+            <br>
+            <input  type="password" style="height: 30px;width: 400px;position:relative;top:60px;left:50px" id="pass" onkeyup='check();' placeholder="Password" required>
+
+            <input style="height: 30px;width: 400px;position:relative;left:100px;top:60px" for="que" list="que" type="text" placeholder="Please Select a security Question" required>
+            <datalist id="que">
+                <option value="Question option 1( Favorite movie )">Favorite Movie Name</option>
+                <option value="Question option 2( First School )">Fisrt School Name</option>
+                <option value="Question option 3( Pet )">Your Pet's Name</option>
+                <option value="Question option 4( First Teacher )">Your Fisrt Teacher's Name</option>
+            </datalist>
+            <br>
+            <input  type="password" style="height: 30px;width: 400px;position:relative;top:90px;left:50px" id="cpass" placeholder="Confirm Password" onkeyup='check();' required>
+
+            <input  type="text" style="height: 30px;width: 400px;position:relative;left:100px;top:90px" id="ans" placeholder="Enter your answer"required>
+            <br>
+
+
+            <span id='message' style="height: 30px;width: 400px;position:relative;left:50px;top:110px"></span>
+            <br>
+            <input type="radio" id="male" name="gender" style="position:relative;top:130px;left:50px" value="male">
+            <label for="male" style="height: 30px;width: 400px;position:relative;top:130px;left:50px">Male</label>&nbsp
+
+            
+            <input type="radio" id="female" name="gender" style="position:relative;top:130px;left:50px" value="female">
+            <label for="female" style="height: 30px;width: 400px;position:relative;top:130px;left:50px">Female</label>&nbsp
+            
+            <input type="radio" id="oth" name="gender" style="position:relative;top:130px;left:50px" value="oth">
+            <label for="oth" style="height: 30px;width: 400px;position:relative;top:130px;left:50px">Other</label>&nbsp
+
+             <input type="submit" name="Register" value="Register"  style="font-family: serif;position: relative;top:130px;left:550px; font-size: 25px;background-color:#00bfff;border: 1px solid white;border-radius: 8px;color:white; height:45px;width: 130px;">
+
+        
+        </form>
+        </div>
+        </div>
+        
+    
+
+   
+        
+  
+
+
+</body>
